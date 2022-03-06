@@ -5,6 +5,12 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+// 一次性导入svg图片
+const requireAll = requireContext => requireContext.keys().map(requireContext)
+const req = require.context("assets/imgs", true, /\.svg$/)
+requireAll(req)
+
+
 new Vue({
   router,
   store,
