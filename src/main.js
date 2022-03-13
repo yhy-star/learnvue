@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
+//  通过原型使得$bus具有意义
+Vue.prototype.$bus = new Vue()
 
 // 一次性导入svg图片
 const requireAll = requireContext => requireContext.keys().map(requireContext)

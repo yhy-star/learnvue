@@ -32,15 +32,11 @@ export default {
     showIndicator: {
       type: Boolean,
       default: true
-    },
-    slideCount: {
-      type: Number,
-      default: 4
     }
   },
   data: function () {
     return {
-      // slideCount: 4, // 元素个数
+      slideCount: 4, // 元素个数
       totalWidth: 0, // swiper的宽度
       swiperStyle: {}, // swiper样式
       currentIndex: 1, // 当前的index

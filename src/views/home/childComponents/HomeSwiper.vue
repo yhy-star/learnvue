@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Swiper :slideCount="this.banners.length">
+    <Swiper>
       <SwiperItem v-for="item in banners">
         <a :href="item.link">
-          <img :src="item.image" alt="">
+          <img :src="item.image" alt="" @load="imageLoad">
         </a>
       </SwiperItem>
     </Swiper>
@@ -19,6 +19,11 @@ export default {
     Swiper,
     SwiperItem
   },
+  data() {
+    return {
+      isLoad: false
+    }
+  },
   props: {
     banners: {
       type: Array,
@@ -28,7 +33,13 @@ export default {
     }
   },
   created() {
-    console.log(this.banners.length)
+  },
+  methods: {
+    imageLoad() {
+      if (!this.isLoad)
+        this.$emit('swiperImageLoad')
+        this.isLoad = true
+    }
   }
 }
 </script>
